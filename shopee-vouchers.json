@@ -1,7 +1,7 @@
 {
   "status": "idle",
   "source": "products.json",
-  "updated_at": "2026-06-07T00:43:37.915Z",
+  "updated_at": "2026-06-07T00:55:24.674Z",
   "message": "No enabled products. Add Shopee product URLs in products.json and set enabled to true.",
   "products_checked": 0,
   "total_voucher_candidates": 0,
