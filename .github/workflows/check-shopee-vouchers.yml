@@ -1,0 +1,38 @@
+name: Check Shopee Vouchers
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: check-shopee-vouchers
+  cancel-in-progress: true
+
+jobs:
+  check-vouchers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check Shopee vouchers
+        run: npm run check:vouchers
+
+      - name: Commit JSON result if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add shopee-vouchers.json
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Update Shopee voucher data"
+          git push
