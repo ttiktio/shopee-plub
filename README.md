@@ -1,10 +1,10 @@
 # shopee-plub
 
-Lightweight Shopee voucher monitor using GitHub Actions.
+Lightweight Shopee Flash Sale monitor using GitHub Actions.
 
 ## What this does
 
-This project checks a list of Shopee product URLs from `products.json`, looks for voucher-related data in the public product response, and writes the result to `shopee-vouchers.json`.
+This project checks Shopee Thailand Flash Sale public endpoints and writes the current flash sale product list to `shopee-flash-sale.json`.
 
 It is designed as a monitor only:
 
@@ -18,33 +18,38 @@ It is designed as a monitor only:
 
 ```text
 actions workflow: .github/workflows/check-shopee-vouchers.yml
-product list:     products.json
-checker script:   scripts/check-shopee-vouchers.js
-output file:      shopee-vouchers.json
+config file:      flash-sale-config.json
+checker script:   scripts/check-shopee-flash-sale.js
+output file:      shopee-flash-sale.json
 ```
 
 ## How to use
 
-1. Open `products.json`.
-2. Replace the example URL with a real Shopee product URL.
-3. Set `enabled` to `true`.
-4. Open GitHub Actions and run `Check Shopee Vouchers` manually.
+1. Open GitHub Actions.
+2. Select `Check Shopee Flash Sale`.
+3. Click `Run workflow`.
+4. After the run finishes, open `shopee-flash-sale.json`.
 
-Example:
+The output contains flash sale sessions and product items, including product name, price, original price, discount, stock/sold fields when available, image URL, and product URL.
+
+## Config
+
+Edit `flash-sale-config.json` if needed:
 
 ```json
-[
-  {
-    "name": "Golf ball shop example",
-    "url": "https://shopee.co.th/example-product-i.123456.789012",
-    "enabled": true
-  }
-]
+{
+  "base_url": "https://shopee.co.th",
+  "country": "TH",
+  "max_sessions": 4,
+  "item_limit": 60,
+  "include_sold_out": true,
+  "request_delay_ms": 2000
+}
 ```
 
-## Output
+## Output behavior
 
-The workflow updates `shopee-vouchers.json` only when it can successfully check at least one enabled product. If every enabled product fails because of a temporary Shopee/API error, the script exits without overwriting the old JSON file.
+The workflow writes results to `shopee-flash-sale.json`. If every Shopee flash sale endpoint fails because of a temporary API/Shopee error and an old output file already exists, the script exits without overwriting the old JSON file.
 
 ## Run mode
 
@@ -53,5 +58,5 @@ The workflow is manual-only with `workflow_dispatch`. It will not run on a sched
 ## Local test
 
 ```bash
-npm run check:vouchers
+npm run check:flash-sale
 ```
