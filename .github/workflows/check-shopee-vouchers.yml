@@ -1,4 +1,4 @@
-name: Check Shopee Vouchers
+name: Check Shopee Flash Sale
 
 on:
   workflow_dispatch:
@@ -7,11 +7,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: check-shopee-vouchers
+  group: check-shopee-flash-sale
   cancel-in-progress: true
 
 jobs:
-  check-vouchers:
+  check-flash-sale:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +23,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check Shopee vouchers
-        run: npm run check:vouchers
+      - name: Check Shopee flash sale products
+        run: npm run check:flash-sale
 
       - name: Commit JSON result if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add shopee-vouchers.json
-          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Update Shopee voucher data"
+          git add shopee-flash-sale.json
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Update Shopee flash sale data"
           git push
