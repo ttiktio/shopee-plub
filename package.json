@@ -2,10 +2,11 @@
   "name": "shopee-plub",
   "version": "0.1.0",
   "private": true,
-  "description": "Lightweight Shopee voucher monitor that writes results to JSON via GitHub Actions.",
+  "description": "Lightweight Shopee flash sale monitor that writes results to JSON via GitHub Actions.",
   "type": "commonjs",
   "scripts": {
-    "check:vouchers": "node scripts/check-shopee-vouchers.js"
+    "check:flash-sale": "node scripts/check-shopee-flash-sale.js",
+    "check:vouchers": "node scripts/check-shopee-flash-sale.js"
   },
   "engines": {
     "node": ">=20"
