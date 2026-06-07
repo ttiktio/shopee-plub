@@ -2,8 +2,6 @@ name: Check Shopee Vouchers
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/10 * * * *"
 
 permissions:
   contents: write
