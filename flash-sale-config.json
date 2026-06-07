@@ -1,0 +1,8 @@
+{
+  "base_url": "https://shopee.co.th",
+  "country": "TH",
+  "max_sessions": 4,
+  "item_limit": 60,
+  "include_sold_out": true,
+  "request_delay_ms": 2000
+}
