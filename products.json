@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Example Shopee product",
+    "url": "https://shopee.co.th/",
+    "enabled": false,
+    "note": "Replace this URL with a real Shopee product URL. Set enabled to true when ready."
+  }
+]
