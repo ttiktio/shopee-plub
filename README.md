@@ -25,10 +25,11 @@ output file:      shopee-flash-sale.json
 
 ## How to use
 
-1. Open GitHub Actions.
-2. Select `Check Shopee Flash Sale`.
-3. Click `Run workflow`.
-4. After the run finishes, open `shopee-flash-sale.json`.
+1. Merge this pull request.
+2. Open GitHub Actions.
+3. Select `Check Shopee Flash Sale`.
+4. Click `Run workflow`.
+5. After the run finishes, open `shopee-flash-sale.json`.
 
 The output contains flash sale sessions and product items, including product name, price, original price, discount, stock/sold fields when available, image URL, and product URL.
 
