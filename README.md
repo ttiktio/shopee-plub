@@ -28,7 +28,7 @@ output file:      shopee-vouchers.json
 1. Open `products.json`.
 2. Replace the example URL with a real Shopee product URL.
 3. Set `enabled` to `true`.
-4. Run the workflow manually from GitHub Actions, or wait for the schedule.
+4. Open GitHub Actions and run `Check Shopee Vouchers` manually.
 
 Example:
 
@@ -46,9 +46,9 @@ Example:
 
 The workflow updates `shopee-vouchers.json` only when it can successfully check at least one enabled product. If every enabled product fails because of a temporary Shopee/API error, the script exits without overwriting the old JSON file.
 
-## Schedule
+## Run mode
 
-The workflow runs every 10 minutes and can also be run manually with `workflow_dispatch`.
+The workflow is manual-only with `workflow_dispatch`. It will not run on a schedule.
 
 ## Local test
 
