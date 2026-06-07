@@ -1,8 +1,8 @@
 {
-  "status": "not_started",
+  "status": "idle",
   "source": "products.json",
-  "updated_at": null,
-  "message": "Add real Shopee product URLs in products.json and enable them before running the workflow.",
+  "updated_at": "2026-06-07T00:43:37.915Z",
+  "message": "No enabled products. Add Shopee product URLs in products.json and set enabled to true.",
   "products_checked": 0,
   "total_voucher_candidates": 0,
   "items": []
