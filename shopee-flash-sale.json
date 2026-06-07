@@ -1,0 +1,13 @@
+{
+  "status": "not_started",
+  "source": "shopee_flash_sale_public_api",
+  "base_url": "https://shopee.co.th",
+  "country": "TH",
+  "updated_at": null,
+  "message": "Run the GitHub Actions workflow manually to check current Shopee flash sale products.",
+  "sessions_found": 0,
+  "sessions_checked": 0,
+  "products_found": 0,
+  "items": [],
+  "sessions": []
+}
